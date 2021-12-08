@@ -5,6 +5,7 @@ import ProductList from "../components/productList";
 import ProductItem from "../components/productItem";
 import PHProductItem from "../components/phProductItem";
 import Search from "../components/search";
+import Link from "next/link";
 
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProducts } from "../features/products/productsSlice";
@@ -52,7 +53,11 @@ const Home = () => {
       {!error && !loading && products.length > 0 && (
         <ProductList>
           {products.map((product) => (
-            <ProductItem key={product.id} product={product} />
+            <Link href={`/product/${product.id}`} key={product.id}>
+              <a>
+                <ProductItem product={product} />
+              </a>
+            </Link>
           ))}
         </ProductList>
       )}

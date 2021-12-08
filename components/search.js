@@ -18,7 +18,6 @@ const Search = () => {
     setSearchText(newValue);
     clearTimeout(timer);
     timer = setTimeout(() => {
-      console.log("searching for: ", newValue);
       if (newValue === "") {
         dispatch(fetchProducts());
       } else {

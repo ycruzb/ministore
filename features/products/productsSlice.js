@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
-const API_BASE_PATH = "https://front-test-api.herokuapp.com/api";
+import { API_BASE_PATH } from "../../utils/constants";
 
 const initialState = {
   products: [],
