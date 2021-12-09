@@ -1,21 +1,21 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import {
   searchProducts,
   fetchAllProducts,
 } from "../features/products/productsSlice";
 
+import { setSearchText } from "../features/products/searchSlice";
+
 let timer;
 
 const Search = () => {
-  const [searchText, setSearchText] = useState("");
-
+  const { searchText } = useSelector((state) => state.search);
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
     const newValue = e.target.value;
-    setSearchText(newValue);
+    dispatch(setSearchText(newValue));
     clearTimeout(timer);
     timer = setTimeout(() => {
       if (newValue === "") {
