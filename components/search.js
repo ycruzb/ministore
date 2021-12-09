@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 
 import {
   searchProducts,
-  fetchProducts,
+  fetchAllProducts,
 } from "../features/products/productsSlice";
 
 let timer;
@@ -19,7 +19,7 @@ const Search = () => {
     clearTimeout(timer);
     timer = setTimeout(() => {
       if (newValue === "") {
-        dispatch(fetchProducts());
+        dispatch(fetchAllProducts());
       } else {
         dispatch(searchProducts(newValue));
       }

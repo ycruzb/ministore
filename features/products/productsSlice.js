@@ -7,10 +7,13 @@ const initialState = {
   error: false,
 };
 
-export const fetchProducts = createAsyncThunk("products/fetchAll", async () => {
-  const response = await fetch(`${API_BASE_PATH}/product`);
-  return response.json();
-});
+export const fetchAllProducts = createAsyncThunk(
+  "products/fetchAll",
+  async () => {
+    const response = await fetch(`${API_BASE_PATH}/product`);
+    return response.json();
+  }
+);
 
 // Se pudo realizar un filtraje directamente sobre lo que ya se tiene pero se ha decidido
 // recrear una llamada a api que es lo mas habitual, ya que en este caso no hay un endpoint
@@ -34,17 +37,17 @@ export const productsSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchProducts.fulfilled, (state, action) => {
+    builder.addCase(fetchAllProducts.fulfilled, (state, action) => {
       state.products = action.payload;
       state.loading = false;
       state.error = false;
     });
-    builder.addCase(fetchProducts.rejected, (state) => {
+    builder.addCase(fetchAllProducts.rejected, (state) => {
       state.products = [];
       state.loading = false;
       state.error = true;
     });
-    builder.addCase(fetchProducts.pending, (state) => {
+    builder.addCase(fetchAllProducts.pending, (state) => {
       state.products = [];
       state.loading = true;
       state.error = false;

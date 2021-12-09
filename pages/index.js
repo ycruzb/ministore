@@ -8,14 +8,14 @@ import Search from "../components/search";
 import Link from "next/link";
 
 import { useSelector, useDispatch } from "react-redux";
-import { fetchProducts } from "../features/products/productsSlice";
+import { fetchAllProducts } from "../features/products/productsSlice";
 
 const Home = () => {
   const { loading, error, products } = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchProducts());
+    dispatch(fetchAllProducts());
   }, []);
 
   return (
