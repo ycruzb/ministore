@@ -25,7 +25,7 @@ const Header = () => {
       <div className="relative">
         <ShoppingCartIcon className="text-gray-700 w-6 h-6 mt-[6px]" />
         {items > 0 && (
-          <div className="absolute top-[-2px] right-[-10px] text-white bg-red-700 rounded-full text-sm px-[7px]">
+          <div className="absolute top-[-2px] right-[-12px] text-white bg-red-700 rounded-full text-sm px-[7px]">
             {items}
           </div>
         )}
