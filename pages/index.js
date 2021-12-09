@@ -10,12 +10,14 @@ import Link from "next/link";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAllProducts } from "../features/products/productsSlice";
 import { setSearchText } from "../features/products/searchSlice";
+import { setHomePage } from "../features/breadcrumb/breadcrumbSlice";
 
 const Home = () => {
   const { loading, error, products } = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(setHomePage());
     dispatch(setSearchText(""));
     dispatch(fetchAllProducts());
   }, []);

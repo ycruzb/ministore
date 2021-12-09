@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ShoppingCartIcon } from "@heroicons/react/solid";
 import useScrollPosition from "../hooks/useScrollPosition";
 import { useSelector } from "react-redux";
+import Breadcrumb from "../components/breadcrumb";
 
 const Header = () => {
   const scrollPosition = useScrollPosition();
@@ -17,6 +18,9 @@ const Header = () => {
         <Link href="/">
           <a className="text-2xl block">Ministore</a>
         </Link>
+      </div>
+      <div className="mt-1">
+        <Breadcrumb />
       </div>
       <div className="relative">
         <ShoppingCartIcon className="text-gray-700 w-6 h-6 mt-[6px]" />

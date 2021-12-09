@@ -10,6 +10,7 @@ import {
   setColorCode,
   setStorageCode,
 } from "../../features/cart/cartSlice";
+import { setInternPage } from "../../features/breadcrumb/breadcrumbSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 const ProductDetailPage = (props) => {
@@ -30,6 +31,9 @@ const ProductDetailPage = (props) => {
   } = props.data;
 
   useEffect(() => {
+    dispatch(
+      setInternPage({ title: `${brand} ${model}`, url: `/product/${id}` })
+    );
     dispatch(setColorCode(colors[0].code));
     dispatch(setStorageCode(storages[0].code));
   }, []);
