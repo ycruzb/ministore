@@ -1,12 +1,25 @@
+import { useEffect } from "react";
 import { API_BASE_PATH } from "../../utils/constants";
 import Head from "next/head";
 import Image from "next/image";
 import { price_formatter } from "../../utils/price_formatter";
 import Link from "next/link";
 import { ArrowLeftIcon } from "@heroicons/react/solid";
+import {
+  addToCart,
+  setColorCode,
+  setStorageCode,
+} from "../../features/cart/cartSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 const ProductDetailPage = (props) => {
+  const dispatch = useDispatch();
+  const { sending, error, colorCode, storageCode } = useSelector(
+    (state) => state.cart
+  );
+
   const {
+    id,
     brand,
     model,
     imgUrl,
@@ -15,6 +28,24 @@ const ProductDetailPage = (props) => {
     weight,
     options: { colors, storages },
   } = props.data;
+
+  useEffect(() => {
+    dispatch(setColorCode(colors[0].code));
+    dispatch(setStorageCode(storages[0].code));
+  }, []);
+
+  const handleColorChange = (e) => {
+    dispatch(setColorCode(parseInt(e.target.value)));
+  };
+
+  const handleStorageChange = (e) => {
+    dispatch(setStorageCode(parseInt(e.target.value)));
+  };
+
+  const handleAddToCart = () => {
+    dispatch(addToCart({ id, colorCode, storageCode }));
+  };
+
   return (
     <>
       <nav className="w-full px-5 py-5">
@@ -69,7 +100,10 @@ const ProductDetailPage = (props) => {
               Colors
               <br />
             </span>
-            <select className="rounded-md py-1" name="" id="">
+            <select
+              onChange={(e) => handleColorChange(e)}
+              className="rounded-md py-1"
+            >
               {colors.map((color) => (
                 <option key={color.code} value={color.code}>
                   {color.name}
@@ -82,7 +116,10 @@ const ProductDetailPage = (props) => {
               Storages
               <br />
             </span>
-            <select className="rounded-md py-1" name="" id="">
+            <select
+              onChange={(e) => handleStorageChange(e)}
+              className="rounded-md py-1"
+            >
               {storages.map((storage) => (
                 <option key={storage.code} value={storage.code}>
                   {storage.name}
@@ -91,8 +128,38 @@ const ProductDetailPage = (props) => {
             </select>
           </div>
           <div className="w-full">
-            <button className="text-base text-white bg-blue-700 px-8 py-2 rounded-md hover:bg-blue-800 transition duration-200">
-              Add to Cart
+            <button
+              onClick={() => handleAddToCart()}
+              disabled={sending}
+              className="text-base text-white bg-blue-700 px-8 py-2 rounded-md hover:bg-blue-800 transition duration-200"
+            >
+              {!sending ? (
+                `Add to Cart`
+              ) : (
+                <div className="flex">
+                  <svg
+                    className="animate-spin -ml-1 mt-[2px] mr-3 h-5 w-5 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
+                  </svg>{" "}
+                  <span>Adding</span>
+                </div>
+              )}
             </button>
           </div>
         </div>
