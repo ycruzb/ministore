@@ -19,7 +19,7 @@ const Header = () => {
           <a className="text-2xl block">Ministore</a>
         </Link>
       </div>
-      <div className="mt-1">
+      <div className="mt-1 hidden md:block">
         <Breadcrumb />
       </div>
       <div className="relative">

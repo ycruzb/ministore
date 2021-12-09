@@ -47,11 +47,17 @@ const ProductDetailPage = (props) => {
   };
 
   const handleAddToCart = () => {
-    dispatch(addToCart({ id, colorCode, storageCode }));
+    dispatch(
+      addToCart({
+        id: id,
+        colorCode: colorCode,
+        storageCode: storageCode,
+      })
+    );
   };
 
   return (
-    <>
+    <div className="container mx-auto">
       <nav className="w-full px-5 py-5">
         <Link href="/">
           <a>
@@ -168,7 +174,7 @@ const ProductDetailPage = (props) => {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 

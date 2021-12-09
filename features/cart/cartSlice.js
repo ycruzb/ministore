@@ -10,13 +10,17 @@ const initialState = {
 };
 
 export const addToCart = createAsyncThunk("cart/addToCart", async (data) => {
+  let headersList = {
+    Accept: "*/*",
+    "Content-Type": "application/json",
+  };
+
   const response = await fetch(`${API_BASE_PATH}/cart`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: headersList,
     body: JSON.stringify(data),
   });
+
   return response.json();
 });
 
