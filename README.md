@@ -4,7 +4,7 @@ The demo has been developed in **React** using **Next.js**, styling with **Tailw
 
 ## Live demo
 
-[https://ministore-demo.vercel.appp/](https://ministore-demo.vercel.app/)
+[https://ministore-demo.vercel.app/](https://ministore-demo.vercel.app/)
 
 # Installation
 
