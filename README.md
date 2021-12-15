@@ -39,3 +39,34 @@ yarn dev
 1. Update your repo on Github.
 
 2. Sign up on [Vercel](https://vercel.com/) and follow the instructions to deploy a project from your GitHub repo, remember to config the environment variables as well.
+
+# Testing
+
+## Unit testing
+
+Testing some element appearance and some reducer behaviors, using Jest and React Testing Library
+
+```bash
+npm run test
+```
+
+or
+
+```bash
+yarn test
+```
+
+## E2E testing
+
+Testing the whole search process, from visit the page until the search result checking. (Important note: Remember to run the project locally before run e2e testing)
+
+```bash
+npm run cypress
+```
+
+or
+
+```bash
+yarn cypress
+```
+
