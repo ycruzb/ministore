@@ -44,7 +44,7 @@ yarn dev
 
 ## Unit testing
 
-Testing some element appearance and some reducer behaviors, using Jest and React Testing Library
+Testing some element appearance and some reducer behaviors, using Jest and React Testing Library.
 
 ```bash
 npm run test
@@ -58,7 +58,7 @@ yarn test
 
 ## E2E testing
 
-Testing the whole search process, from visit the page until the search result checking. (Important note: Remember to run the project locally before run e2e testing)
+Testing the whole search process, from visit the page until the search result checking. (Important note: Remember to run the project locally before run e2e testing).
 
 ```bash
 npm run cypress
