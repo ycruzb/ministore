@@ -14,6 +14,6 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/_app.js", "pages/_document.js", "pages/index.js", "layouts/layout.js", "components/footer.js", "components/header.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/_app.js", "pages/_document.js", "pages/index.js", "layouts/layout.js", "components/footer.js", "components/header.js", "__tests__/index.test.js"],
   "exclude": ["node_modules"]
 }

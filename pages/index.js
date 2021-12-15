@@ -32,6 +32,8 @@ const Home = () => {
 
       <Search />
 
+	  <h1 className="container mx-auto text-3xl font-semibold mb-6">Products</h1>
+
       {error && (
         <div className="w-full text-center text-red-600 flex justify-center">
           <ExclamationCircleIcon className="text-red-600 w-5 h-5 mt-[3px] mr-[6px]" />{" "}

@@ -1,6 +1,6 @@
 const PJProductItem = () => {
   return (
-    <div className="w-full flex gap-5 animate-pulse">
+    <div className="w-full flex gap-5 animate-pulse" data-testid="placeholder-product">
       <div className="w-full relative max-w-[140px] mb-1">
         <div className="w-[140px] h-[180px] bg-gray-300"></div>
       </div>
