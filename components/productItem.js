@@ -16,7 +16,7 @@ const ProductItem = ({ product }) => {
       </div>
       <div className="">
         <p className="text-lg font-semibold mb-1 product-brand">{brand}</p>
-        <p className="text-sm mb-1 text-gray-500">{model}</p>
+        <p className="text-sm mb-1 text-gray-500 product-model">{model}</p>
         <p className="text-base font-semibold">
           {price_formatter.format(price)}
         </p>

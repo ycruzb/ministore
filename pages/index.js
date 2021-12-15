@@ -32,7 +32,9 @@ const Home = () => {
 
       <Search />
 
-	  <h1 className="container mx-auto text-3xl font-semibold mb-6">Products</h1>
+      <h1 className="container mx-auto text-3xl font-semibold mb-6">
+        Products
+      </h1>
 
       {error && (
         <div className="w-full text-center text-red-600 flex justify-center">
@@ -50,7 +52,7 @@ const Home = () => {
       )}
 
       {!error && !loading && products.length === 0 && (
-        <div className="w-full text-center flex justify-center">
+        <div className="w-full text-center flex justify-center no-products">
           <ExclamationCircleIcon className="w-5 h-5 mt-[3px] mr-[6px]" />
           There are no products to show!
         </div>
